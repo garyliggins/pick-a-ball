@@ -21,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 require("./routes/User.route")(app);
+require("./routes/Game.route")(app);
 
 
 app.listen(process.env.DB_PORT, () =>
