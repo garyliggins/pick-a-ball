@@ -38,13 +38,15 @@ const NavbarComp = () => {
                 Find
               </Nav.Link>
             </Link>
-            <Nav.Link
-              href="#link"
-              className="navItem"
-              style={{ color: "#ffff" }}
-            >
-              Create
-            </Nav.Link>
+            <Link to="/createGame">
+              <Nav.Link
+                href="#link"
+                className="navItem"
+                style={{ color: "#ffff" }}
+              >
+                Create
+              </Nav.Link>
+            </Link>
             <Nav.Link
               href="#link"
               className="navItem"
