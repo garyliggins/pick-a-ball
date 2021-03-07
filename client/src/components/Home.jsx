@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 // import nav component
 import NavbarComp from "./NavbarComp";
+import {Link} from '@reach/router';
 import { Jumbotron, Container, Button } from "react-bootstrap";
 // axios to make calls to backend
 import axios from "axios";
@@ -23,7 +24,6 @@ const Home = () => {
       window.location.reload();
   }
 
-
   return (
     <div>
       <NavbarComp />
@@ -37,7 +37,7 @@ const Home = () => {
                   <h3>You Have a {game.sport} game on {game.date}</h3>
                   <p>be there by {game.time}:00 @ {game.location}</p>
                   <Button variant="outline-danger" onClick={(e)=>deleteGame(e, game.id)}>Delete Game</Button>{' '}
-                  {/* <link varient="outline-success" to={`/api/games/${games._id}`}>Update Game</link> */}
+                  <link varient="outline-success" to={`/api/games/${game._id}`}>Update Game</link>
                   <Button variant="outline-success">Update Game</Button>{' '}
                 </div>
               ))
