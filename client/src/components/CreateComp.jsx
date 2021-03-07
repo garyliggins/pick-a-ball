@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Form, Row, Col, InputGroup, Button } from "react-bootstrap";
 import NavbarComp from "./NavbarComp";
+import {Link, navigate} from '@reach/router';
+import axios from 'axios';
 
 const CreateComp = () => {
 
@@ -11,6 +13,9 @@ const [state, setState] = useState("");
 const [location, setLocation] = useState("");
 const [players, setPlayers] = useState("");
 const [time, setTime] = useState("");
+const [date, setDate] = useState("");
+const [email, setEmail] = useState("");
+const [errors, setErrors] = useState("");
 
 const addGame = (e) => {
   e.preventDefault();
@@ -34,8 +39,8 @@ const addGame = (e) => {
                   }
                   else {
                       setGame(res.data);
-                      console.log(deviation);
-                      navigate(`/api/games/${res.data._id}`)
+                      console.log(game);
+                      navigate(`/`)
                       console.log(res.data);
                   }
               })
@@ -53,59 +58,77 @@ const addGame = (e) => {
         <Form onSubmit={addGame}>
             {/* sport */}
           <Form.Group as={Row}>
-            <Form.Label column sm="2"> 
+            <Form.Label column sm="3"> 
               Sport
             </Form.Label>
-            <Col sm="10">
+            <Col sm="8">
             <Form.Control size="md" type="text" placeholder="Sport" onChange={(e) => setSport(e.target.value)}/>
             </Col>
-          </Form.Group>
+          </Form.Group>           
           {/* City */}
           <Form.Group as={Row}>
-            <Form.Label column sm="2"> 
+            <Form.Label column sm="3"> 
               City
             </Form.Label>
-            <Col sm="10">
+            <Col sm="8">
             <Form.Control size="md" type="text" placeholder="City" onChange={(e) => setCity(e.target.value)}/>
             </Col>
           </Form.Group>
           {/* State */}
           <Form.Group as={Row}>
-            <Form.Label column sm="2"> 
+            <Form.Label column sm="3"> 
               State
             </Form.Label>
-            <Col sm="10">
-            <Form.Control size="md" type="text" placeholder="State" />
+            <Col sm="8">
+            <Form.Control size="md" type="text" placeholder="State" onChange={(e) => setState(e.target.value)}/>
             </Col>
           </Form.Group>
           {/* Location */}
           <Form.Group as={Row}>
-            <Form.Label column sm="2"> 
+            <Form.Label column sm="3"> 
               Location
             </Form.Label>
-            <Col sm="10">
-            <Form.Control size="md" type="text" placeholder="Location" />
+            <Col sm="8">
+            <Form.Control size="md" type="text" placeholder="Location" onChange={(e) => setLocation(e.target.value)}/>
             </Col>
           </Form.Group>
           {/* players */}
           <Form.Group as={Row}>
-            <Form.Label column sm="2"> 
+            <Form.Label column sm="3"> 
               Players
             </Form.Label>
-            <Col sm="10">
-            <Form.Control size="md" type="text" placeholder="Number Of Players" />
+            <Col sm="8">
+            <Form.Control size="md" type="text" placeholder="Number Of Players" onChange={(e) => setPlayers(e.target.value)}/>
             </Col>
           </Form.Group>
           {/* Time */}
+          
           <Form.Group as={Row}>
-            <Form.Label column sm="2"> 
-              Time
+            <Form.Label column sm="3"> 
+              Time & Date
             </Form.Label>
-            <Col sm="10">
-            <Form.Control size="md" type="text" placeholder="Time" />
+            <Col sm="8">
+            <select className="btn-sm mr-auto  m-3 " id="phaseSelection" onChange={(e) => setTime(e.target.value)}>
+              <option></option>
+              <option>10</option>
+              <option>12</option>
+              <option>14</option>
+              <option>16</option>
+              <option>18</option>
+            </select>
+            <input type="date" format="mm-dd-yyyy" className="order-2 mr-auto ml-3 d-inline float-right" onChange={(e) => setDate(e.target.value)} />
             </Col>
           </Form.Group>
-          <Button variant="outline-primary">Create</Button>{' '}
+          {/* email */}
+          <Form.Group as={Row}>
+            <Form.Label column sm="3"> 
+              Email
+            </Form.Label>
+            <Col sm="8">
+            <Form.Control size="md" type="text" placeholder="Sport" onChange={(e) => setEmail(e.target.value)}/>
+            </Col>
+          </Form.Group>  
+          <Button type="submit" variant="outline-primary">Create</Button>{' '}
         </Form>
       </div>
     </div>
