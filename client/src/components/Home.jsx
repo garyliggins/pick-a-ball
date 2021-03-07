@@ -36,9 +36,9 @@ const Home = () => {
                 <div key={index}>
                   <h3>You Have a {game.sport} game on {game.date}</h3>
                   <p>be there by {game.time}:00 @ {game.location}</p>
-                  <Button variant="outline-danger" onClick={(e)=>deleteGame(e, game.id)}>Delete Game</Button>{' '}
-                  <link varient="outline-success" to={`/api/games/${game._id}`}>Update Game</link>
-                  <Button variant="outline-success">Update Game</Button>{' '}
+                  <Button variant="outline-danger" onClick={(e)=>deleteGame(e, game._id)}>Delete Game</Button>{' '}
+                  <Link varient="outline-success" to={`/api/games/${game._id}`}>Update Game</Link>
+                  {/* <Button variant="outline-success">Update Game</Button>{' '} */}
                 </div>
               ))
             }

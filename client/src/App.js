@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Home path="/" />
         <CreateComp path="/createGame" />
-        <UpdateGame path="/updateGame" />
+        <UpdateGame path="/api/games/:id" />
       </Router>
     </div>
   );

@@ -19,7 +19,7 @@ const [errors, setErrors] = useState("");
 
 useEffect(()=>{
     axios
-        .get('/api/games/${props.id}')
+        .get(`/api/games/${props.id}`)
         .then((res)=>{
             console.log(res.data);
             setGame(res.data.game);
@@ -38,7 +38,7 @@ useEffect(()=>{
 const editGame = (e) => {
     e.preventDefault();
     axios
-        .put("http://localhost:8000/api/games/${props.id}", {
+        .put(`http://localhost:8000/api/games/${props.id}`, {
             sport: sport,
             city: city,
             state: state,
@@ -47,8 +47,6 @@ const editGame = (e) => {
             time: time,
             date: date,
             email: email,
-           
-
         })
         .then((res) => {
             if(res.data.errors){
@@ -64,7 +62,9 @@ const editGame = (e) => {
     return(
     <div>
         <NavbarComp />
-        <h1 className="create-top">Update a Game</h1>
+        <h1 className="create-top">Update Game</h1>
+        <Link className="outline-danger" to={`/`}>Discard Changes</Link>
+
       <div className="contianer from form-comp-container">
         <Form onSubmit={editGame}>
             {/* sport */}
@@ -148,7 +148,6 @@ const editGame = (e) => {
           <Button type="submit" variant="outline-primary">Create</Button>{' '}
         </Form>
       </div>
-      <Button variant="outline-danger">Discard Changes</Button>
     </div>
     )
 };
