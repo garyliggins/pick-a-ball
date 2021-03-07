@@ -28,8 +28,8 @@ const GameSchema = new mongoose.Schema({
     },
 
     date: {
-        type: Date,
-        required: [true, "Date is required"]
+        type: String,
+        required: [false, "Date is required"]
     },
 
     time: {

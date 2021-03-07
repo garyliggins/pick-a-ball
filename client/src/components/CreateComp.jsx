@@ -14,6 +14,7 @@ const [location, setLocation] = useState("");
 const [players, setPlayers] = useState("");
 const [time, setTime] = useState("");
 const [date, setDate] = useState("");
+const [email, setEmail] = useState("");
 const [errors, setErrors] = useState("");
 
 const addGame = (e) => {
@@ -104,7 +105,7 @@ const addGame = (e) => {
           
           <Form.Group as={Row}>
             <Form.Label column sm="3"> 
-              Date & Time
+              Time & Date
             </Form.Label>
             <Col sm="8">
             <select className="btn-sm mr-auto  m-3 " id="phaseSelection" onChange={(e) => setTime(e.target.value)}>
@@ -118,6 +119,15 @@ const addGame = (e) => {
             <input type="date" format="mm-dd-yyyy" className="order-2 mr-auto ml-3 d-inline float-right" onChange={(e) => setDate(e.target.value)} />
             </Col>
           </Form.Group>
+          {/* email */}
+          <Form.Group as={Row}>
+            <Form.Label column sm="3"> 
+              Email
+            </Form.Label>
+            <Col sm="8">
+            <Form.Control size="md" type="text" placeholder="Sport" onChange={(e) => setEmail(e.target.value)}/>
+            </Col>
+          </Form.Group>  
           <Button type="submit" variant="outline-primary">Create</Button>{' '}
         </Form>
       </div>
