@@ -28,7 +28,7 @@ const GameSchema = new mongoose.Schema({
     },
 
     date: {
-        type: String,
+        type: Date,
         required: [false, "Date is required"]
     },
 

@@ -22,16 +22,17 @@ const Home = () => {
       <div className="container">
         <h1 className="homeHead">Upcoming Games</h1>
         <Jumbotron fluid className="homeJumbo">
-          <Container>
+          <Container className="head-comp-container">
             {
               games.map((game,index) => (
                 <div key={index}>
                   <h3>You Have a {game.sport} game on {game.date}</h3>
-                  <p>be there by {game.time} @ {game.location}</p>
-                  <Button variant="outline-primary">Delte Game</Button>{' '}
+                  <p>be there by {game.time}:00 @ {game.location}</p>
+                  <Button variant="outline-danger">Delete Game</Button>{' '}
+                  <Button variant="outline-success">Update Game</Button>{' '}
                 </div>
               ))
-            };
+            }
 
             {/* if theres no games show this in the jumbotron */}
 

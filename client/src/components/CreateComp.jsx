@@ -30,6 +30,7 @@ const addGame = (e) => {
                   location: location,
                   players: players,
                   time: time,
+                  date: date
               })
               .then((res) => {
                   if (res.data.error) {
@@ -48,6 +49,7 @@ const addGame = (e) => {
       })
   .catch(err => console.log(err));
   console.log("addGame started");
+  console.log("this is date" + date)
 }
 
   return (
@@ -110,11 +112,18 @@ const addGame = (e) => {
             <Col sm="8">
             <select className="btn-sm mr-auto  m-3 " id="phaseSelection" onChange={(e) => setTime(e.target.value)}>
               <option></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
               <option>10</option>
+              <option>11</option>
               <option>12</option>
-              <option>14</option>
-              <option>16</option>
-              <option>18</option>
             </select>
             <input type="date" format="mm-dd-yyyy" className="order-2 mr-auto ml-3 d-inline float-right" onChange={(e) => setDate(e.target.value)} />
             </Col>
@@ -125,7 +134,7 @@ const addGame = (e) => {
               Email
             </Form.Label>
             <Col sm="8">
-            <Form.Control size="md" type="text" placeholder="Sport" onChange={(e) => setEmail(e.target.value)}/>
+            <Form.Control size="md" type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
             </Col>
           </Form.Group>  
           <Button type="submit" variant="outline-primary">Create</Button>{' '}

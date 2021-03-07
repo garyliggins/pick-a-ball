@@ -29,15 +29,6 @@ const NavbarComp = () => {
                 Home
               </Nav.Link>
             </Link>
-            <Link to="/findGame">
-              <Nav.Link
-                href="#link"
-                className="navItem"
-                style={{ color: "#ffff" }}
-              >
-                Find
-              </Nav.Link>
-            </Link>
             <Link to="/createGame">
               <Nav.Link
                 href="#link"
@@ -47,13 +38,15 @@ const NavbarComp = () => {
                 Create
               </Nav.Link>
             </Link>
-            <Nav.Link
-              href="#link"
-              className="navItem"
-              style={{ color: "#ffff" }}
-            >
-              MyGames
-            </Nav.Link>
+            <Link to="/updateGame">
+              <Nav.Link
+                href="#link"
+                className="navItem"
+                style={{ color: "#ffff" }}
+              >
+                MyGames
+              </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
         {/* signed in as nav */}
