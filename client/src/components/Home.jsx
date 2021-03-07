@@ -15,6 +15,14 @@ const Home = () => {
       .catch((err) => console.log(err))
   }, []);
 
+  const deleteGame = (e, id) => {
+    e.preventDefault();
+    axios
+      .delete(`/api/games/${id}`)
+      .catch((err)=>console.log(err));
+      window.location.reload();
+  }
+
 
   return (
     <div>
@@ -28,7 +36,8 @@ const Home = () => {
                 <div key={index}>
                   <h3>You Have a {game.sport} game on {game.date}</h3>
                   <p>be there by {game.time}:00 @ {game.location}</p>
-                  <Button variant="outline-danger">Delete Game</Button>{' '}
+                  <Button variant="outline-danger" onClick={(e)=>deleteGame(e, game.id)}>Delete Game</Button>{' '}
+                  {/* <link varient="outline-success" to={`/api/games/${games._id}`}>Update Game</link> */}
                   <Button variant="outline-success">Update Game</Button>{' '}
                 </div>
               ))
