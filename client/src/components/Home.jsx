@@ -38,6 +38,9 @@ const deleteGame = (e, gameId) => {
                 <div key={index}>
                   <h3>You Have a {game.sport} game on {(new Date(game.date)).toLocaleDateString("en-us")}</h3>
                   <p>be there by {game.time}:00 @ {game.location}</p>
+                  <p>
+                      <Link to={`/games/${game._id}`}>Details</Link>
+                  </p>
                   <button onClick ={ (e) => deleteGame(e, game._id) }>Delete</button>
                   <Link varient="outline-success" to={`/api/games/${game._id}`}>Update Game</Link>
                   {/* <Button variant="outline-success">Update Game</Button>{' '} */}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from '@reach/router';
 import axios from 'axios';
 
-const GameDetail = (props) => {
+const OneGame = (props) => {
     const [ game, setGame ] = useState({});
 
     useEffect(() => {
@@ -23,6 +23,7 @@ const GameDetail = (props) => {
         
         return (
             <div>
+                <h2> {game.sport} Game</h2>
                 <p>Sport: {game.sport}</p>
                 <p>City: {game.city}</p>
                 <p>State: {game.state}</p>
@@ -30,7 +31,6 @@ const GameDetail = (props) => {
                 <p>Players: {game.players}</p>
                 <p>Date: {game.date}</p>
                 <p>Time: {game.time}</p>
-                <p>Email: {game.email}</p>
 
 
                 <Link to="/">
@@ -41,4 +41,4 @@ const GameDetail = (props) => {
         )
 }
 
-export default GameDetail;
+export default OneGame;
