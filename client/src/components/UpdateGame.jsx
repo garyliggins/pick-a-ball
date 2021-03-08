@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const UpdateGame = (props) => {
 
-const [game, setGame] = useState("");
+
 const [sport, setSport] = useState("");
 const [city, setCity] = useState("");
 const [state, setState] = useState("");
@@ -15,14 +15,13 @@ const [players, setPlayers] = useState("");
 const [time, setTime] = useState("");
 const [date, setDate] = useState("");
 const [email, setEmail] = useState("");
-const [errors, setErrors] = useState("");
+const [errors, setErrors] = useState([]);
 
 useEffect(()=>{
     axios
-        .get('/api/games/${props.id}')
+        .get(`http://localhost:8000/api/games/` + props.id)
         .then((res)=>{
             console.log(res.data);
-            setGame(res.data.game);
             setSport(res.data.sport);
             setCity(res.data.city);
             setState(res.data.state);
@@ -38,7 +37,7 @@ useEffect(()=>{
 const editGame = (e) => {
     e.preventDefault();
     axios
-        .put("http://localhost:8000/api/games/${props.id}", {
+        .put(`http://localhost:8000/api/games/${props.id}`, {
             sport: sport,
             city: city,
             state: state,
@@ -47,8 +46,6 @@ const editGame = (e) => {
             time: time,
             date: date,
             email: email,
-           
-
         })
         .then((res) => {
             if(res.data.errors){
@@ -64,7 +61,9 @@ const editGame = (e) => {
     return(
     <div>
         <NavbarComp />
-        <h1 className="create-top">Update a Game</h1>
+        <h1 className="create-top">Update Game</h1>
+        <Link className="outline-danger" to={`/`}>Discard Changes</Link>
+
       <div className="contianer from form-comp-container">
         <Form onSubmit={editGame}>
             {/* sport */}
@@ -145,10 +144,9 @@ const editGame = (e) => {
             <Form.Control size="md" type="text" placeholder={email} onChange={(e) => setEmail(e.target.value)}/>
             </Col>
           </Form.Group>  
-          <Button type="submit" variant="outline-primary">Create</Button>{' '}
+          <Button type="submit" variant="outline-primary">Update</Button>{' '}
         </Form>
       </div>
-      <Button variant="outline-danger">Discard Changes</Button>
     </div>
     )
 };
