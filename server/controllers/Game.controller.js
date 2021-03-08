@@ -18,12 +18,12 @@ module.exports = {
         .catch((err) => res.json(err));
     },
     update: (req, res) => {
-        Game.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        Games.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then((updatedGame) => res.json(updatedGame))
         .catch((err) => res.json(err));
     },
     delete: (req, res) => {
-        Game.findByIdAndDelete(req.params.id)
+        Games.findByIdAndDelete(req.params.id)
         .then((deleted) => res.json(deleted))
         .catch((err) => res.json(err));
     },
