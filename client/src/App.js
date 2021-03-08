@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./components/Home";
 import CreateComp from "./components/CreateComp";
 import UpdateGame from "./components/UpdateGame";
+import OneGame from "./components/OneGame";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Home path="/" />
         <CreateComp path="/createGame" />
         <UpdateGame path="/api/games/:id" />
+        <OneGame path="/games/:id" />
       </Router>
     </div>
   );
