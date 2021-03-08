@@ -36,7 +36,7 @@ const deleteGame = (e, gameId) => {
             {
               games.map((game,index) => (
                 <div key={index}>
-                  <h3>You Have a {game.sport} game on {game.date}</h3>
+                  <h3>You Have a {game.sport} game on {(new Date(game.date)).toLocaleDateString("en-us")}</h3>
                   <p>be there by {game.time}:00 @ {game.location}</p>
                   <button onClick ={ (e) => deleteGame(e, game._id) }>Delete</button>
                   <Link varient="outline-success" to={`/api/games/${game._id}`}>Update Game</Link>
