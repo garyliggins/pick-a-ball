@@ -28,6 +28,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 // routes
 require("./routes/Game.route")(app);
+require("./routes/User.route")(app);
 // twilio route
 app.get("/send-text", (req,res) => {
   const {recipient, textmessage} = req.query

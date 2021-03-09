@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import CreateComp from "./components/CreateComp";
 import UpdateGame from "./components/UpdateGame";
 import OneGame from "./components/OneGame";
+import LogReg from "./Views.jsx/LogReg";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <CreateComp path="/createGame" />
         <UpdateGame path="/api/games/:id" />
         <OneGame path="/games/:id" />
+        <LogReg path="login" />
       </Router>
     </div>
   );
