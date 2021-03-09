@@ -14,7 +14,7 @@ const NavbarComp = () => {
   return (
     <div>
       <Navbar bg="primary" expand="lg">
-        <Navbar.Brand href="#home" style={{ color: "#ffff" }}>
+        <Navbar.Brand href="/" style={{ color: "#ffff" }}>
           Pick a Ball
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
